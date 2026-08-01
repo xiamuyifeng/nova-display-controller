@@ -95,11 +95,10 @@ cargo test
 registry = "sparse+https://rsproxy.cn/index/"
 ```
 
-需要底层 HID 报告诊断时，显式启用仅开发使用的探测程序：
+需要底层 HID 报告诊断时，运行独立的开发探测工具：
 
 ```powershell
-cd src-tauri
-cargo run --features dev-tools --bin hid_probe
+cargo run --manifest-path tools/hid-probe/Cargo.toml
 ```
 
 ## 场景包

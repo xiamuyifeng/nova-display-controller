@@ -2,19 +2,15 @@
 name = "nova-display-controller"
 version = "0.1.0"
 edition = "2021"
+autobins = false
 default-run = "nova-display-controller"
 description = "A customizable OLED controller for SteelSeries headset base stations"
 license = "MIT"
 repository = "https://github.com/xiamuyifeng/nova-display-controller"
 
-[features]
-default = []
-dev-tools = []
-
 [[bin]]
-name = "hid_probe"
-path = "src/bin/hid_probe.rs"
-required-features = ["dev-tools"]
+name = "nova-display-controller"
+path = "src/main.rs"
 
 [dependencies]
 tauri = { version = "2", features = ["devtools", "tray-icon"] }
