@@ -1,9 +1,11 @@
 # Nova Display Controller
 
+[English](./README_EN.md) | 简体中文
+
 SteelSeries Arctis Nova Pro 耳机基座 OLED 桌面控制器。前端使用 Vue 3，桌面外壳与设备通信使用 Tauri 2 + Rust。
 
 > [!IMPORTANT]
-> 这是非官方社区项目，与 SteelSeries 没有隶属、授权或背书关系。SteelSeries、Arctis 和相关产品名称是其各自所有者的商标。本项目直接与 HID 设备通信，请只在下方明确标为“已验证”的硬件上使用。
+> Nova Display Controller 是独立开发的开源社区项目，目前与 SteelSeries 没有隶属或正式合作关系。SteelSeries、Arctis 及相关名称和标识属于其各自权利人，在本项目中仅用于说明设备兼容性。本项目欢迎与 SteelSeries 官方及社区就设备兼容、官方 API 和生态集成开展合作。
 
 项目目前处于 Preview 阶段，主要面向 Windows 10/11。源码采用 [MIT License](./LICENSE)；安装包将在 GitHub Releases 中作为预发布版本提供。
 
@@ -87,6 +89,12 @@ cargo test
 
 参与开发前请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)。第三方依赖归属见 [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md)。
 
+如果 Cargo 报错 `sparse registry url must end in a slash`，请确认 `%USERPROFILE%\.cargo\config.toml` 中的镜像地址以 `/` 结尾：
+
+```toml
+registry = "sparse+https://rsproxy.cn/index/"
+```
+
 需要底层 HID 报告诊断时，显式启用仅开发使用的探测程序：
 
 ```powershell
@@ -165,10 +173,6 @@ Linux 需要为相应 `hidraw` 设备配置 udev 访问权限。OLED 长时间�
 
 ## 许可证
 
-项目源码使用 [MIT License](./LICENSE)。第三方组件保留各自许可证和版权声明。本仓库不会授予 SteelSeries 商标、产品名称或品牌素材的使用权。
+本项目原创源码采用 [MIT License](./LICENSE)，任何个人或组织，包括 SteelSeries，均可依照许可证使用、修改和分发。第三方组件保留各自许可证和版权声明；MIT 许可证不涉及任何第三方商标权。
 
-如果 Cargo 报错 `sparse registry url must end in a slash`，请确认 `%USERPROFILE%\.cargo\config.toml` 中的镜像地址以 `/` 结尾：
-
-```toml
-registry = "sparse+https://rsproxy.cn/index/"
-```
+隐私说明见 [PRIVACY.md](./PRIVACY.md)，代码签名计划与职责见 [CODE_SIGNING_POLICY.md](./CODE_SIGNING_POLICY.md)。
