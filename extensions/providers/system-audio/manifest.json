@@ -1,0 +1,33 @@
+{
+  "format": "nova-display-extension",
+  "apiVersion": 2,
+  "runtime": "provider",
+  "id": "dev.nova.system-audio",
+  "name": "系统音频频谱",
+  "version": "1.1.0",
+  "author": "Nova Display",
+  "description": "读取 Windows 默认播放设备的实时音频，提供音量强度变量和频谱图层。",
+  "entry": {
+    "windows": "provider.exe"
+  },
+  "files": ["provider.exe"],
+  "protocol": "nova-jsonl-v1",
+  "capabilities": ["variables", "renderer", "events"],
+  "variables": [
+    { "key": "rms", "label": "音频强度" }
+  ],
+  "events": [
+    { "key": "audio_started", "label": "检测到声音" },
+    { "key": "audio_stopped", "label": "声音停止" }
+  ],
+  "renderer": {
+    "label": "音频频谱",
+    "settings": [
+      { "key": "bars", "label": "频段数量", "type": "range", "default": 16, "min": 4, "max": 32, "step": 1 },
+      { "key": "gain", "label": "灵敏度", "type": "range", "default": 2.2, "min": 0.5, "max": 6, "step": 0.1 },
+      { "key": "smoothing", "label": "平滑", "type": "range", "default": 0.68, "min": 0, "max": 0.92, "step": 0.02 },
+      { "key": "filled", "label": "填充柱形", "type": "toggle", "default": true }
+    ]
+  },
+  "permissions": ["native.process"]
+}

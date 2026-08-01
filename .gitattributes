@@ -1,2 +1,11 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize source files while keeping packaged assets byte-for-byte stable.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.exe binary
+*.ico binary
+*.icns binary
+*.png binary
+*.zip binary
+*.nova-extension binary
+*.nova-oled binary
+*.nova-backup binary

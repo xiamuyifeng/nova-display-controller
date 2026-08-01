@@ -1,0 +1,6 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicedoc/tauri/v2/tooling/schema/config.schema.json",
+  "bundle": {
+    "targets": ["nsis"]
+  }
+}

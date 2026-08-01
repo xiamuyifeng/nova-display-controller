@@ -1,0 +1,22 @@
+{
+  "format": "nova-display-extension",
+  "apiVersion": 2,
+  "runtime": "provider",
+  "id": "dev.nova.system-network",
+  "name": "系统网络吞吐",
+  "version": "1.0.0",
+  "author": "Nova Display",
+  "description": "读取本机网络接口的实时吞吐，提供下载、上传速率和归一化活跃度变量。",
+  "entry": {
+    "windows": "provider.exe"
+  },
+  "files": ["provider.exe"],
+  "protocol": "nova-jsonl-v1",
+  "capabilities": ["variables"],
+  "variables": [
+    { "key": "download_kbps", "label": "下载 KB/s" },
+    { "key": "upload_kbps", "label": "上传 KB/s" },
+    { "key": "activity", "label": "网络活跃度" }
+  ],
+  "permissions": ["native.process"]
+}

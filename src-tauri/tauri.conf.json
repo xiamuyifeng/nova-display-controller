@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicedoc/tauri/v2/tooling/schema/config.schema.json",
+  "productName": "Nova Display Controller",
+  "version": "0.1.0",
+  "identifier": "io.github.xiamuyifeng.nova-display-controller",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://127.0.0.1:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Nova Display Controller",
+        "width": 1120,
+        "height": 820,
+        "minWidth": 760,
+        "minHeight": 560,
+        "resizable": true,
+        "visible": false,
+        "devtools": true,
+        "decorations": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' blob: data: asset: http://asset.localhost; media-src 'self' blob: asset: http://asset.localhost; worker-src 'self' blob:; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost; object-src 'none'; base-uri 'self'; frame-src 'none'",
+      "devCsp": "default-src 'self' http://localhost:5173; img-src 'self' blob: data: asset: http://asset.localhost http://localhost:5173; media-src 'self' blob: asset: http://asset.localhost; worker-src 'self' blob: http://localhost:5173; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' http://localhost:5173; style-src 'self' 'unsafe-inline' http://localhost:5173; font-src 'self' data: http://localhost:5173; connect-src 'self' ipc: http://ipc.localhost http://localhost:5173 ws://localhost:5173; object-src 'none'; base-uri 'self'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "xiamuyifeng",
+    "copyright": "Copyright (c) 2026 xiamuyifeng",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "allowDowngrades": false,
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese", "English"],
+        "displayLanguageSelector": false,
+        "installerHooks": "./installer-hooks.nsh"
+      }
+    }
+  }
+}

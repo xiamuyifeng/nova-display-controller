@@ -1,0 +1,38 @@
+{
+  "name": "nova-display-controller",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "repository": "github:xiamuyifeng/nova-display-controller",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "pack:extension": "node scripts/pack-extension.mjs",
+    "check:extension": "node scripts/check-extension.mjs",
+    "test:provider": "node scripts/test-provider-protocol.mjs",
+    "create:provider": "node scripts/create-provider.mjs",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@jitl/quickjs-wasmfile-release-sync": "^0.31.0",
+    "@lucide/vue": "^1.27.0",
+    "@tauri-apps/api": "^2.5.0",
+    "@tauri-apps/plugin-dialog": "^2.7.2",
+    "@tauri-apps/plugin-fs": "^2.5.1",
+    "gifuct-js": "^2.1.2",
+    "jszip": "^3.10.1",
+    "quickjs-emscripten-core": "^0.31.0",
+    "vue": "3.5.13"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.5.0",
+    "@vitejs/plugin-vue": "5.2.3",
+    "fake-indexeddb": "^6.2.5",
+    "typescript": "5.7.3",
+    "vite": "^6.4.3",
+    "vitest": "^3.2.7"
+  }
+}

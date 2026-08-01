@@ -1,0 +1,30 @@
+# JavaScript dependencies and generated frontend output
+node_modules/
+dist/
+
+# Rust and Tauri build output
+**/target/
+src-tauri/gen/
+
+# Generated extension packages and local extension projects
+dist-extensions/
+extensions/local/
+extensions/providers/*/provider.exe
+
+# Local configuration and diagnostic output
+.env
+.env.*
+!.env.example
+*.log
+
+# Root-level development screenshots and exported user packages
+/*.png
+/*.nova-backup
+/*.nova-oled
+/*.nova-extension
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

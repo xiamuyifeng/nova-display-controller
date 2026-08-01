@@ -1,0 +1,26 @@
+{
+  "format": "nova-display-extension",
+  "apiVersion": 2,
+  "runtime": "provider",
+  "id": "dev.nova.provider-counter",
+  "name": "Provider 协议测试",
+  "version": "1.0.0",
+  "author": "Nova Display",
+  "description": "开发用原生 Provider 示例，用于验证独立进程通信，不读取系统数据。",
+  "entry": {
+    "windows": "provider.cmd",
+    "linux": "provider"
+  },
+  "protocol": "nova-jsonl-v1",
+  "capabilities": ["variables", "renderer"],
+  "variables": [
+    { "key": "counter", "label": "计数器" }
+  ],
+  "renderer": {
+    "label": "Provider 测试柱",
+    "settings": [
+      { "key": "columns", "label": "柱子数量", "type": "range", "default": 8, "min": 2, "max": 24, "step": 1 }
+    ]
+  },
+  "permissions": ["native.process"]
+}
