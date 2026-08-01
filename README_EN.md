@@ -2,12 +2,30 @@
 
 English | [简体中文](./README.md)
 
-Nova Display Controller is a desktop OLED controller for SteelSeries Arctis Nova Pro headset base stations. It uses Vue 3 for the interface and Tauri 2 with Rust for the desktop runtime and direct HID communication.
+[![Latest Preview](https://img.shields.io/github/v/release/xiamuyifeng/nova-display-controller?include_prereleases&label=preview)](https://github.com/xiamuyifeng/nova-display-controller/releases/tag/v0.1.0-preview.1)
+[![CI](https://github.com/xiamuyifeng/nova-display-controller/actions/workflows/ci.yml/badge.svg)](https://github.com/xiamuyifeng/nova-display-controller/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-16804b.svg)](./LICENSE)
+
+Nova Display Controller is an OLED scene editor and desktop controller for SteelSeries Arctis Nova Pro headset base stations. It uses Vue 3 for the interface and Tauri 2 with Rust for the desktop runtime and direct HID communication.
+
+![Nova Display Controller screen workbench](./docs/images/app-workbench-light.png)
+
+## Download and quick start
+
+**[Download the latest Windows x64 Preview](https://github.com/xiamuyifeng/nova-display-controller/releases/tag/v0.1.0-preview.1)**
+
+Each Release includes an installer, a no-installer ZIP, and `SHA256SUMS.txt`. The current Preview is unsigned, so Windows SmartScreen may show an unknown-publisher warning. Verify the published SHA-256 before running a downloaded file.
+
+1. Install the application, or extract the no-installer ZIP and run `nova-display-controller.exe`.
+2. Connect the headset base station. The verified device is Arctis Nova Pro Wireless `VID 0x1038 / PID 0x12E0 / MI_04`.
+3. Choose a clock, system monitor, music view, image, animation, or custom scene, then start live output.
+
+SteelSeries GG can remain running. If GG or the base station temporarily takes over the OLED, Nova Display Controller resumes the custom frame after that output stops.
 
 > [!IMPORTANT]
 > Nova Display Controller is an independently developed open-source community project and currently has no affiliation or formal partnership with SteelSeries. SteelSeries, Arctis, and related names and marks belong to their respective owners and are used only to describe device compatibility. The project welcomes collaboration with SteelSeries and the community on device compatibility, official APIs, and ecosystem integration.
 
-The project is currently in Preview and primarily targets Windows 10/11. Source code is available under the [MIT License](./LICENSE). Preview binaries will be distributed through GitHub Releases.
+The project is currently in Preview and primarily targets Windows 10/11. Source code is available under the [MIT License](./LICENSE), and binaries are published through [GitHub Releases](https://github.com/xiamuyifeng/nova-display-controller/releases).
 
 ## Support status
 

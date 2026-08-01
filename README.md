@@ -2,12 +2,30 @@
 
 [English](./README_EN.md) | 简体中文
 
-SteelSeries Arctis Nova Pro 耳机基座 OLED 桌面控制器。前端使用 Vue 3，桌面外壳与设备通信使用 Tauri 2 + Rust。
+[![Latest Preview](https://img.shields.io/github/v/release/xiamuyifeng/nova-display-controller?include_prereleases&label=preview)](https://github.com/xiamuyifeng/nova-display-controller/releases/tag/v0.1.0-preview.1)
+[![CI](https://github.com/xiamuyifeng/nova-display-controller/actions/workflows/ci.yml/badge.svg)](https://github.com/xiamuyifeng/nova-display-controller/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-16804b.svg)](./LICENSE)
+
+SteelSeries Arctis Nova Pro 耳机基座 OLED 场景编辑器与桌面控制软件。前端使用 Vue 3，桌面外壳与设备通信使用 Tauri 2 + Rust。
+
+![Nova Display Controller 屏幕工作台](./docs/images/app-workbench-light.png)
+
+## 下载与快速开始
+
+**[下载最新 Windows x64 Preview](https://github.com/xiamuyifeng/nova-display-controller/releases/tag/v0.1.0-preview.1)**
+
+Release 同时提供安装程序、免安装 ZIP 和 `SHA256SUMS.txt`。当前 Preview 尚未进行代码签名，Windows SmartScreen 可能显示“未知发布者”；运行前请核对 Release 页面公布的 SHA-256。
+
+1. 安装应用，或解压免安装 ZIP 后运行 `nova-display-controller.exe`。
+2. 连接耳机基座；已验证设备为 Arctis Nova Pro Wireless `VID 0x1038 / PID 0x12E0 / MI_04`。
+3. 在屏幕工作台选择时钟、系统监控、音乐、图片、动画或自由场景，然后开始实时显示。
+
+SteelSeries GG 可以同时运行。GG 或基座自身界面临时接管 OLED 后，本应用会在其停止输出后恢复自定义画面。
 
 > [!IMPORTANT]
 > Nova Display Controller 是独立开发的开源社区项目，目前与 SteelSeries 没有隶属或正式合作关系。SteelSeries、Arctis 及相关名称和标识属于其各自权利人，在本项目中仅用于说明设备兼容性。本项目欢迎与 SteelSeries 官方及社区就设备兼容、官方 API 和生态集成开展合作。
 
-项目目前处于 Preview 阶段，主要面向 Windows 10/11。源码采用 [MIT License](./LICENSE)；安装包将在 GitHub Releases 中作为预发布版本提供。
+项目目前处于 Preview 阶段，主要面向 Windows 10/11。源码采用 [MIT License](./LICENSE)，安装包通过 [GitHub Releases](https://github.com/xiamuyifeng/nova-display-controller/releases) 发布。
 
 ## 支持状态
 
