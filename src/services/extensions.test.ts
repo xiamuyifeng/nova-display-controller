@@ -1,7 +1,7 @@
 import "fake-indexeddb/auto";
 import JSZip from "jszip";
 import { beforeEach, describe, expect, test } from "vitest";
-import { inspectExtensionPackage, installExtensionPackage, listExtensions, plainExtensionSettings } from "./extensions";
+import { detectExtensionPlatform, inspectExtensionPackage, installExtensionPackage, listExtensions, plainExtensionSettings } from "./extensions";
 
 function resetExtensions() {
   return new Promise<void>((resolve, reject) => {
@@ -35,6 +35,14 @@ async function extensionFile(overrides: Record<string, unknown> = {}) {
 }
 
 describe("extension packages", () => {
+  test("detects browser and Node platforms without assuming macOS", () => {
+    expect(detectExtensionPlatform("Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "")).toBe("windows");
+    expect(detectExtensionPlatform("", "win32")).toBe("windows");
+    expect(detectExtensionPlatform("Mozilla/5.0 (X11; Linux x86_64)", "")).toBe("linux");
+    expect(detectExtensionPlatform("Mozilla/5.0 (Macintosh; Intel Mac OS X)", "")).toBe("macos");
+    expect(() => detectExtensionPlatform("", "")).toThrow("无法识别当前平台");
+  });
+
   beforeEach(resetExtensions);
 
   test("installs a validated extension package", async () => {

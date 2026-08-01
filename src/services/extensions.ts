@@ -203,6 +203,18 @@ function settingDefinition(value: unknown): ExtensionSettingDefinition {
   return result;
 }
 
+export type ExtensionPlatform = "windows" | "linux" | "macos";
+
+export function detectExtensionPlatform(
+  platformHint = `${globalThis.navigator?.userAgent ?? ""} ${globalThis.navigator?.platform ?? ""}`,
+  processPlatform = (globalThis as typeof globalThis & { process?: { platform?: string } }).process?.platform ?? "",
+): ExtensionPlatform {
+  if (/Windows|Win32|Win64/i.test(platformHint) || processPlatform === "win32") return "windows";
+  if (/Linux/i.test(platformHint) || processPlatform === "linux") return "linux";
+  if (/Macintosh|MacIntel|Mac OS/i.test(platformHint) || processPlatform === "darwin") return "macos";
+  throw new Error("无法识别当前平台");
+}
+
 function parseManifest(value: unknown): ExtensionManifest {
   if (!value || typeof value !== "object") throw new Error("扩展清单格式无效");
   const source = value as Partial<ExtensionManifest>;
@@ -242,8 +254,7 @@ function parseManifest(value: unknown): ExtensionManifest {
     entry = Object.fromEntries(["windows", "linux", "macos"]
       .filter(platform => entries[platform] !== undefined)
       .map(platform => [platform, string(entries[platform], `${platform} 入口`, 160)]));
-    const platformHint = `${globalThis.navigator?.userAgent ?? ""} ${globalThis.navigator?.platform ?? ""}`;
-    const platform = /Windows|Win32|Win64/i.test(platformHint) ? "windows" : /Linux/i.test(platformHint) ? "linux" : "macos";
+    const platform = detectExtensionPlatform();
     if (!entry[platform as keyof typeof entry]) throw new Error(`此 Provider 扩展不支持当前平台：${platform}`);
   }
   const protocol = runtime === "provider" ? source.protocol : undefined;
